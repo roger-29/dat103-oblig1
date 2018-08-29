@@ -8,5 +8,5 @@ Første obligatoriske innlevering i DAT103.
 
 | Arne   | Anders | Sondre |
 | ------ | ------ | ------ |
-| 15, 16 |        |        |
+| 15, 16 |        | 19     |
 
