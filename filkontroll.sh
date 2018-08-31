@@ -3,10 +3,11 @@ file=$1
 interval=$2
 existed=0
 first=1
+sha1=0
 
 if [ -f $file ];
 then
-    sha1=sha1sum $file
+    sha1=$(sha1sum $file)
 fi
 
 while true
@@ -35,13 +36,15 @@ while true
                 exit
         fi
 
-        if [ ! "$sha1" = "sha1sum $file" ];
+        if [ -f $file ];
+        then
+            if [ ! "$sha1" == "$(sha1sum $file)" ];
             then
                 echo "File $file was modified."
-                #sleep $interval
-                #exit
+                sleep $interval
+                exit
+            fi
         fi
-
         sleep $interval
 done
 
